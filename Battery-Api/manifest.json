@@ -1,23 +1,19 @@
 {
-    "name": "Battery Status Alert",
-    "version": "1.0.0",
-    "description": "Battery Api status chrome extension checker",
-    "manifest_version": 3,
-    "author": "Harriet",
-    "permissions": ["scripting"],
-    "host_permissions": ["<all_urls>"],
-    "icons": {
-        "48": "images/icon-48.png"
-    },
-    "action":{
-        "default_popup": "index.html",
-        "default_title": "Batter api"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["script.js"]
-      }
-    ]
-  
+  "name": "Battery Monitor",
+  "author": "Harriet",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+"permissions": ["tabs", "scripting"],
+"content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "128": "images/icon-48.png"
+  }
 }
